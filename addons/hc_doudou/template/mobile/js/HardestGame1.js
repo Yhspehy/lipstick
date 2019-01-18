@@ -761,12 +761,12 @@
       this.AimBullet.paint(this.context);
       this.centerCircle.paint(this.context);
       var self = this;
-      setTimeout(function() {
-        self.update.call(self);
-      }, 1000);
-      // window.requestAnimationFrame(function() {
+      // setTimeout(function() {
       //   self.update.call(self);
-      // });
+      // }, 1000);
+      window.requestAnimationFrame(function() {
+        self.update.call(self);
+      });
     },
     nextLevel: function() {
       $(".bulletsNumBox").css("display", "none");
