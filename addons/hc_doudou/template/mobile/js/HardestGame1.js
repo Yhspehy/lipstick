@@ -549,14 +549,14 @@
         if (!this.isCanTap) {
           var tempBC = this.AimBullet;
           /*碰撞检测START*/
-          console.log(tempBC.y, ROTATION_CENTER.y, ROTATION_RADIUS);
           if (
             tempBC.y <=
             ROTATION_CENTER.y + ROTATION_RADIUS + 2 * RADIUS_SMALL
           ) {
             var checkCollisionResult = this.checkCollision.call(this, tempBC);
+            console.log(checkCollisionResult);
             if (checkCollisionResult.isCollision) {
-              //console.log("失败")
+              console.log("失败");
               this.audioPlay($("#collision_audio").get(0));
               this.AimBullet.isFail = true;
               this.AimBullet.failDirection = checkCollisionResult.failDirection;
@@ -564,10 +564,9 @@
             }
             /*碰撞检测END*/
             /*飞到圆上 && 判断是否调用必输逻辑START*/
-            // if (tempBC.y == ROTATION_CENTER.y + RADIUS_BIG) {
-            console.log(this.AimBullet);
-            this.normalResults.call(this);
-            // }
+            if (tempBC.y == ROTATION_CENTER.y + RADIUS_BIG) {
+              this.normalResults.call(this);
+            }
             /*飞到圆上 && 判断是否调用必输逻辑END*/
           } else {
           }
