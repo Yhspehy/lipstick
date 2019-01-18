@@ -97,35 +97,37 @@ function createHg(GAMEMODE) {
       var audio = document.getElementById("back_music");
       audio.pause();
       playAudioInWechat($("#gameSuccess_audio").get(0));
-      $("#app").addClass("blur");
-      $("#gameSuccessBox").css("display", "block");
-      $("#gameSuccessBoxBtn").on("click", function() {
-        //     console.log("window",window)
-        // if (window.isH5) {
-        //     window.history.go(-1);
-        // }else{
-        //     // wx.miniProgram.switchTab({
-        //     //     url: '../index/index'
-        //     // });
-        //     wx.miniProgram.navigateBack();
-        //     wx.miniProgram.postMessage({data: {id: '1234'}});
-        // }
-        var ua = window.navigator.userAgent.toLowerCase();
-        //通过正则表达式匹配ua中是否含有MicroMessenger字符串
-        if (ua.match(/MicroMessenger/i) == "micromessenger") {
-          wx.miniProgram.getEnv(function(res) {
-            console.log(res.miniprogram); // true
-            if (res.miniprogram) {
-              wx.miniProgram.navigateBack();
-              wx.miniProgram.postMessage({ data: { id: "1234" } });
-            } else {
-              window.history.go(-1);
-            }
-          });
-        } else {
-          window.history.go(-1);
-        }
-      });
+      //   $("#app").addClass("blur");
+      //   $("#gameSuccessBox").css("display", "block");
+      //   $("#gameSuccessBoxBtn").on("click", function() {
+      //     console.log("window",window)
+
+      // if (window.isH5) {
+      //     window.history.go(-1);
+      // }else{
+      //     // wx.miniProgram.switchTab({
+      //     //     url: '../index/index'
+      //     // });
+      //     wx.miniProgram.navigateBack();
+      //     wx.miniProgram.postMessage({data: {id: '1234'}});
+      // }
+
+      // var ua = window.navigator.userAgent.toLowerCase();
+      // //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+      // if (ua.match(/MicroMessenger/i) == "micromessenger") {
+      //   wx.miniProgram.getEnv(function(res) {
+      //     console.log(res.miniprogram); // true
+      //     if (res.miniprogram) {
+      //       wx.miniProgram.navigateBack();
+      //       wx.miniProgram.postMessage({ data: { id: "1234" } });
+      //     } else {
+      //       window.history.go(-1);
+      //     }
+      //   });
+      // } else {
+      //   window.history.go(-1);
+      // }
+      //   });
     }
   };
   //游戏失败结束
