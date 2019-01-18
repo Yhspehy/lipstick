@@ -826,25 +826,25 @@
       var times = parseInt(this.getParams(this.levelA).levelArray[3]);
       var ischangeSpeed = 0;
       $("#timebox").html(times);
-      // timeboxInterval = setInterval(
-      //   function() {
-      //     if (times <= 11 && times > 10) {
-      //       this.audioPlay($("#Countdown_10s_audio").get(0));
-      //     }
-      //     ischangeSpeed++;
-      //     if (/*true*/ ischangeSpeed % changeSpeed == 0) {
-      //       this.oRandom = Math.floor(
-      //         Math.random() * ROTAION_SPEED_ARRAY.length
-      //       );
-      //     }
-      //     times--;
-      //     if (times == 0) {
-      //       this.gameOver.call(this);
-      //     }
-      //     $("#timebox").html(times);
-      //   }.bind(this),
-      //   1000
-      // );
+      timeboxInterval = setInterval(
+        function() {
+          if (times <= 11 && times > 10) {
+            this.audioPlay($("#Countdown_10s_audio").get(0));
+          }
+          ischangeSpeed++;
+          if (/*true*/ ischangeSpeed % changeSpeed == 0) {
+            this.oRandom = Math.floor(
+              Math.random() * ROTAION_SPEED_ARRAY.length
+            );
+          }
+          times--;
+          if (times == 0) {
+            this.gameOver.call(this);
+          }
+          $("#timebox").html(times);
+        }.bind(this),
+        1000
+      );
       //this.centerCircle.restNum = this.levelArray[this.levelA][1];
       this.centerCircle.restNum = parseInt(
         this.getParams(this.levelA).levelArray[1]
